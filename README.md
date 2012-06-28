@@ -49,5 +49,4 @@ To use without Rails, either don't specify the environment(s), or define your ow
 
 Copyright (c) 2012 Gary S. Weaver, released under the [MIT license][lic].
 
-[code]: http://github.com/garysweaver/activerecord-attribute-override/blob/master/lib/activerecord-attribute-override.rb
 [lic]: http://github.com/garysweaver/activerecord-attribute-override/blob/master/LICENSE
