@@ -5,9 +5,13 @@ A gem that adds two methods to ActiveRecord::Base that let you override attribut
 
 Currently the attributes are overriden only in the specified model instance. This is more useful than doing it for every instance of the model, as you might want to set test different data on different model instances.
 
-Why is this needed? If you have attributes that involve more complex relationships and don't want to muddy up your models with checks for other attributes you set on them.
+#### Why?
 
-How does it work? A few instance_variable_set and instance_eval. See the [code][code]. Submit an issue if you have suggestions or problems.
+If you have attributes that involve more complex relationships that you just want to quickly override for testing, although I'm sure there are other possible uses.
+
+#### How does it work?
+
+It's just a few instance_variable_set and instance_evals.
 
 ### Setup
 
