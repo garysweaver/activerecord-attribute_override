@@ -1,23 +1,15 @@
-ActiveRecord Attribute Override
+ActiveRecord - Attribute Override
 =====
 
-A gem that adds two methods to ActiveRecord::Base that let you override attributes of an ActiveRecord model instance much more easily and only when run in the environments you specify.
+A gem that adds two methods to ActiveRecord::Base that let you override attributes of an ActiveRecord model instance much more easily. It also allows you to specify the Rails environments in which the attributes should be overriden.
 
-Currently the attributes are overriden only in the specified model instance. This is more useful than doing it for every instance of the model, as you might want to set test different data on different model instances.
-
-#### Why?
-
-If you have attributes that involve more complex relationships that you just want to quickly override for testing, although I'm sure there are other possible uses.
-
-#### How does it work?
-
-It's just a few instance_variable_set and instance_evals.
+The attributes are overriden only in the specified model instance.
 
 ### Setup
 
 In your Rails 3+ project, add this to your Gemfile:
 
-    gem 'activerecord-attribute-override', :git => 'git://github.com/garysweaver/activerecord-attribute-override.git'
+    gem 'activerecord-attribute-override', :git => 'git://github.com/garysweaver/activerecord-attribute_override.git'
 
 Then run:
 
@@ -25,13 +17,28 @@ Then run:
 
 ### Usage
 
-Some examples. Hopefully they are self-explanitory, combined with the description above. If no environment is specified, then Rails.env is not checked:
+Override my_attribute_name method in my_model instance to return 'some value':
 
     my_model.override_attribute(:my_attribute_name, 'some value')
+
+Override my_attribute_name method in my_model instance to return 'some value' only when Rails.env is 'development':
+
     my_model.override_attribute(:my_attribute_name, 'some value', :development)
+
+Override my_attribute_name method in my_model instance to return 'some value' only when Rails.env is 'test' or 'production':
+
     my_model.override_attribute(:my_attribute_name, 'some value', [:test, :production])
+
+Override my_attribute_name and my_other_attribute_name:
+
     my_model.override_attributes({my_attribute_name: 'some value', my_other_attribute_name: 'some other value'})
+
+Override my_attribute_name and my_other_attribute_name only when Rails.env is 'development':
+
     my_model.override_attributes({my_attribute_name: 'some value', my_other_attribute_name: 'some other value'}, :development)
+
+Override my_attribute_name and my_other_attribute_name only when Rails.env is 'test' or 'production':
+
     my_model.override_attributes({my_attribute_name: 'some value', my_other_attribute_name: 'some other value'}, [:test, :production])
 
 #### Using Without Rails

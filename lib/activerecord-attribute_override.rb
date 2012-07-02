@@ -1,4 +1,4 @@
-require "activerecord-attribute-override/version"
+require "activerecord-attribute_override/version"
 
 # monkey-patch ActiveRecord::Base
 module ActiveRecord
