@@ -9,6 +9,10 @@ The attributes are overriden only in the specified model instance.
 
 In your Rails 3+ project, add this to your Gemfile:
 
+    gem 'activerecord-attribute-override'
+
+For the development version:
+
     gem 'activerecord-attribute-override', :git => 'git://github.com/garysweaver/activerecord-attribute_override.git'
 
 Then run:
